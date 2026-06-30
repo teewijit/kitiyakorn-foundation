@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+/* ===================================================================
+   Kitiyakara Foundation — Theme tokens (extracted from design.md)
+   โทนทอง–ครีม (gold / cream)
+   =================================================================== */
+:root {
+  /* Brand — Gold */
+  --primary-gold: #cd9961;
+  --primary-gold-dark: #b8834c;
+  --primary-gold-light: #f5ecd6;
+
+  /* Text */
+  --text-dark: #2a323d;
+  --text-muted: #5e6b7c;
+  --text-light: #ffffff;
+
+  /* Background */
+  --bg-cream: #fbf9f3;
+  --bg-white: #ffffff;
+  --bg-footer: #efebd6;
+  --bg-card-light: #fdfcf8;
+
+  /* Border */
+  --border-color: #e9e3d0;
+  --border-color-light: #f3eedd;
+
+  /* Effects */
+  --shadow-soft: 0 8px 30px rgba(42, 50, 61, 0.05);
+  --shadow-card: 0 4px 20px rgba(205, 153, 97, 0.08);
+  --shadow-hover: 0 12px 35px rgba(205, 153, 97, 0.15);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-fast: 140ms;
+  --motion-base: 220ms;
+  --motion-slow: 520ms;
+  --transition-smooth: color var(--motion-base) var(--ease-out-quart),
+    background-color var(--motion-base) var(--ease-out-quart),
+    border-color var(--motion-base) var(--ease-out-quart),
+    box-shadow var(--motion-base) var(--ease-out-quart),
+    opacity var(--motion-base) var(--ease-out-quart),
+    transform var(--motion-base) var(--ease-out-quart);
+
+  --radius: 0.75rem; /* 12px card */
+
+  /* shadcn semantic tokens mapped to brand palette */
+  --background: var(--bg-cream);
+  --foreground: var(--text-dark);
+  --card: var(--bg-white);
+  --card-foreground: var(--text-dark);
+  --popover: var(--bg-white);
+  --popover-foreground: var(--text-dark);
+  --primary: var(--primary-gold);
+  --primary-foreground: var(--text-light);
+  --secondary: var(--primary-gold-light);
+  --secondary-foreground: var(--primary-gold-dark);
+  --muted: var(--bg-card-light);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--primary-gold-light);
+  --accent-foreground: var(--primary-gold-dark);
+  --destructive: #d64545;
+  --destructive-foreground: #ffffff;
+  --border: var(--border-color);
+  --input: var(--border-color);
+  --ring: var(--primary-gold);
+}
+
+/* Map tokens into Tailwind's theme so utilities (bg-*, text-*, font-*) resolve */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Named brand colors for direct use: bg-gold, text-gold-dark, etc. */
+  --color-gold: var(--primary-gold);
+  --color-gold-dark: var(--primary-gold-dark);
+  --color-gold-light: var(--primary-gold-light);
+  --color-cream: var(--bg-cream);
+  --color-footer: var(--bg-footer);
+  --color-card-light: var(--bg-card-light);
+  --color-border-light: var(--border-color-light);
+
+  --font-heading: "Prompt", "Sarabun", sans-serif;
+  --font-body: "Sarabun", sans-serif;
+  --font-alt: "Outfit", "Inter", sans-serif;
+
+  --shadow-soft: 0 8px 30px rgba(42, 50, 61, 0.05);
+  --shadow-card: 0 4px 20px rgba(205, 153, 97, 0.08);
+  --shadow-hover: 0 12px 35px rgba(205, 153, 97, 0.15);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* transition-smooth: ease-out นุ่ม ใช้ทั่วทั้งไซต์ (design.md §9) */
+@utility transition-smooth {
+  transition: var(--transition-smooth);
+}
+
+@utility motion-card {
+  transition: var(--transition-smooth);
+}
+
+@utility motion-press {
+  transition: var(--transition-smooth);
+}
+
+@utility motion-image-zoom {
+  transition: transform var(--motion-slow) var(--ease-out-quart);
+}
+
+/* Page container — max 1200px (design.md §3) */
+.container-1200 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (max-width: 768px) {
+  .container-1200 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@keyframes sheetInRight {
+  from { opacity: 0.96; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes sheetInLeft {
+  from { opacity: 0.96; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes sheetInTop {
+  from { opacity: 0.96; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sheetInBottom {
+  from { opacity: 0.96; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.motion-sheet {
+  transition: transform var(--motion-slow) var(--ease-out-expo),
+    opacity var(--motion-base) var(--ease-out-quart);
+}
+
+.motion-sheet[data-state="closed"] {
+  opacity: 0;
+}
+
+.motion-sheet-right[data-state="open"] {
+  animation: sheetInRight var(--motion-slow) var(--ease-out-expo);
+}
+
+.motion-sheet-left[data-state="open"] {
+  animation: sheetInLeft var(--motion-slow) var(--ease-out-expo);
+}
+
+.motion-sheet-top[data-state="open"] {
+  animation: sheetInTop var(--motion-slow) var(--ease-out-expo);
+}
+
+.motion-sheet-bottom[data-state="open"] {
+  animation: sheetInBottom var(--motion-slow) var(--ease-out-expo);
+}
+
+.motion-reveal {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity var(--motion-slow) var(--ease-out-quart),
+    transform var(--motion-slow) var(--ease-out-expo);
+}
+
+.motion-reveal[data-visible="false"] {
+  opacity: 0.28;
+  transform: translate3d(0, 34px, 0);
+}
+
+.motion-reveal[data-visible="false"][data-motion="left"] {
+  transform: translate3d(-42px, 0, 0);
+}
+
+.motion-reveal[data-visible="false"][data-motion="right"] {
+  transform: translate3d(42px, 0, 0);
+}
+
+.motion-list > * {
+  transition: opacity var(--motion-slow) var(--ease-out-quart),
+    transform var(--motion-slow) var(--ease-out-expo);
+  transition-delay: calc(min(var(--motion-index, 0), 8) * 54ms);
+}
+
+.motion-list[data-visible="false"] > * {
+  opacity: 0.2;
+  transform: translate3d(0, 28px, 0);
+}
+
+@media (hover: hover) {
+  .motion-card:hover {
+    will-change: transform;
+  }
+
+  .motion-press:hover {
+    transform: translateY(-1px);
+  }
+
+  .motion-press:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: var(--motion-fast);
+  }
+}
+
+@media (max-width: 768px) {
+  .motion-reveal[data-visible="false"][data-motion="left"],
+  .motion-reveal[data-visible="false"][data-motion="right"] {
+    transform: translate3d(0, 28px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .motion-reveal,
+  .motion-reveal[data-visible="false"],
+  .motion-reveal[data-visible="false"][data-motion="left"],
+  .motion-reveal[data-visible="false"][data-motion="right"],
+  .motion-list[data-visible="false"] > * {
+    opacity: 1;
+    transform: none;
+  }
+}
