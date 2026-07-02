@@ -152,10 +152,10 @@
 /* Page container — max 1200px (design.md §3) */
 .container-1200 {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1728px;
   margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: clamp(24px, 4.5vw, 84px);
+  padding-right: clamp(24px, 4.5vw, 84px);
 }
 @media (max-width: 768px) {
   .container-1200 {

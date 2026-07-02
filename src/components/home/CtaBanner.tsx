@@ -1,10 +1,11 @@
 import type { ReactNode } from "react"
 import { Link } from "react-router-dom"
-import { Facebook, Youtube, Phone } from "lucide-react"
+import { Facebook, Phone, Youtube } from "lucide-react"
 
 import { site } from "@/data/site"
+import { TextAccent } from "@/components/common/TextAccent"
 
-/** CTA banner (design.md §7.7) — ตรา / ข้อความ / ปุ่ม + social icons */
+/** CTA banner */
 export function CtaBanner() {
   return (
     <section className="border-y border-border-light bg-card py-[30px]">
@@ -16,13 +17,14 @@ export function CtaBanner() {
         />
 
         <div>
-          <p className="text-[14.5px] leading-relaxed text-foreground">
-            ร่วมบริจาคสมทบทุนมูลนิธิฯ เพื่อช่วยเหลือ
-            <span className="font-heading font-semibold text-gold-dark">
-              {" "}
-              ผู้ป่วยโรคหัวใจและทรวงอกที่ยากไร้{" "}
-            </span>
-            ที่ครอบครัวไม่สามารถรับผิดชอบค่ารักษาพยาบาลได้
+          <p className="text-[15px] leading-relaxed text-foreground">
+            ร่วมบริจาคสมทบทุนมูลนิธิฯ เพื่อช่วยเหลือ{" "}
+            <TextAccent className="text-[1.12em]">
+              ผู้ป่วยโรคหัวใจและทรวงอกที่ยากไร้
+            </TextAccent>{" "}
+            และส่งต่อ
+            <TextAccent>โอกาสในการรักษา</TextAccent>
+            ให้กับครอบครัวที่ไม่สามารถรับผิดชอบค่ารักษาพยาบาลได้
           </p>
           <div className="mt-4 flex items-center gap-3 max-lg:justify-center">
             <SocialIcon label="Facebook">
@@ -40,7 +42,7 @@ export function CtaBanner() {
         <div className="max-lg:mx-auto max-lg:w-full max-lg:max-w-xs">
           <Link
             to="/donate"
-            className="flex w-full items-center justify-center rounded-[25px] border-2 border-gold bg-transparent px-5 py-2.5 font-heading text-[13.5px] font-semibold text-gold-dark transition-smooth hover:bg-gold-light"
+            className="motion-press flex w-full items-center justify-center rounded-[25px] border-2 border-gold bg-transparent px-5 py-2.5 font-heading text-[13.5px] font-semibold text-gold-dark transition-smooth hover:bg-gold-light"
           >
             ร่วมบริจาควันนี้
           </Link>

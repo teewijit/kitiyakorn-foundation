@@ -12,7 +12,7 @@ interface SectionHeaderProps {
 export function SectionHeader({ title, subtitle, className }: SectionHeaderProps) {
   return (
     <div className={cn("mb-10 text-center", className)}>
-      <h2 className="flex items-center justify-center gap-2 font-heading text-[28px] font-semibold leading-tight text-foreground max-md:text-2xl">
+      <h2 className="flex items-center justify-center gap-2 text-balance font-heading text-[30px] font-semibold leading-tight text-foreground max-md:text-2xl">
         <Heart className="h-[18px] w-[18px] fill-gold text-gold" />
         {title}
       </h2>
@@ -22,7 +22,7 @@ export function SectionHeader({ title, subtitle, className }: SectionHeaderProps
         <span className="h-px flex-[0_1_80px] bg-gold" />
       </div>
       {subtitle && (
-        <p className="mx-auto max-w-2xl text-[15px] text-muted-foreground">
+        <p className="mx-auto max-w-2xl text-[15.5px] leading-relaxed text-muted-foreground">
           {subtitle}
         </p>
       )}

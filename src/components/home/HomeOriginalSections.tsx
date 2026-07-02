@@ -3,11 +3,11 @@ import { Link } from "react-router-dom"
 
 import { site } from "@/data/site"
 import { Reveal, MotionList } from "@/components/common/Motion"
+import { TextAccent } from "@/components/common/TextAccent"
 
 const MEDIA = "https://www.kitiyakarafoundation.or.th"
 
 const originalImages = {
-  foundationMark: `${MEDIA}/media/nhtpzhvy/foundationlogo2.png`,
   supportOne: `${MEDIA}/media/nibbcarc/u3.png`,
   supportTwo: `${MEDIA}/media/xgedv4da/u2.png`,
   supportThree: `${MEDIA}/media/qe0nnmny/u1.png`,
@@ -37,13 +37,12 @@ export function HomeOriginalSections() {
       <section className="bg-card py-[60px] max-lg:py-10">
         <div className="container-1200 grid grid-cols-[0.9fr_1.1fr] items-center gap-10 max-lg:grid-cols-1">
           <Reveal direction="left" className="mx-auto max-w-sm">
-
-        <img
-          src={site.logo}
-          alt={site.nameShort}
-          className="h-75 w-auto object-contain max-md:h-20"
-          loading="lazy"
-        />
+            <img
+              src={site.logo}
+              alt={site.nameShort}
+              className="h-72 w-auto object-contain max-md:h-24"
+              loading="lazy"
+            />
           </Reveal>
 
           <Reveal direction="right">
@@ -51,14 +50,20 @@ export function HomeOriginalSections() {
               โปรแกรมของเรา
             </p>
             <h2 className="max-w-3xl font-heading text-[28px] font-semibold leading-snug text-foreground max-md:text-2xl">
-              มุ่งเน้นสืบสานอุดมการณ์ การเสียสละ และแรงใจเพื่อผู้ป่วยโรคหัวใจที่ยากไร้
+              มุ่งเน้น{" "}
+              <TextAccent className="text-[1.14em]">การเสียสละ</TextAccent>{" "}
+              และ
+              <TextAccent className="text-[1.14em]">แรงใจ</TextAccent>{" "}
+              เพื่อผู้ป่วยโรคหัวใจที่ยากไร้
             </h2>
             <p className="mt-4 text-[15px] leading-[1.85] text-muted-foreground">
-              {site.purpose}
+              มูลนิธิฯ สืบสานอุดมการณ์ของผู้ก่อตั้ง ผ่านการสนับสนุน
+              <TextAccent>การรักษา</TextAccent>, การศึกษา และการพัฒนาบุคลากรทางการแพทย์
+              เพื่อให้ความช่วยเหลือเดินทางไปถึงผู้ป่วยที่ต้องการจริง
             </p>
             <p className="mt-3 text-[14.5px] leading-[1.85] text-muted-foreground">
-              {site.established} เพื่อเป็นอนุสรณ์แด่ ศาสตราจารย์ นายแพทย์
-              หม่อมราชวงศ์กัลยาณกิติ์ กิติยากร และสืบสานการช่วยเหลือผู้ป่วยอย่างต่อเนื่อง
+              {site.established} เพื่อเป็นอนุสรณ์แด่ศาสตราจารย์ นายแพทย์
+              หม่อมราชวงศ์กัลยาณกิติ์ กิติยากร และสานต่อภารกิจช่วยเหลือผู้ป่วยอย่างต่อเนื่อง
             </p>
           </Reveal>
         </div>
@@ -71,12 +76,14 @@ export function HomeOriginalSections() {
               บริการช่วยเหลือผู้ป่วย
             </p>
             <h2 className="font-heading text-[28px] font-semibold leading-snug text-foreground max-md:text-2xl">
-              ช่วยเหลือ ส่งเสริม สนับสนุน
+              <TextAccent className="text-[1.12em]">ช่วยเหลือ</TextAccent>{" "}
+              ส่งเสริม และสนับสนุนให้การรักษาเกิดขึ้นได้จริง
             </h2>
             <p className="mt-4 text-[15px] leading-[1.85] text-muted-foreground">
-              มูลนิธิฯ ได้ดำเนินงานให้ความช่วยเหลือแก่ผู้ป่วยโรคหัวใจและปอด
-              อีกทั้งยังให้การสนับสนุนช่วยเหลือแก่หน่วยงาน และส่งเสริมบุคลากร
-              ที่ทำงานด้านโรคหัวใจและปอด
+              มูลนิธิฯ ให้ความช่วยเหลือแก่
+              <TextAccent>ผู้ป่วยโรคหัวใจและปอด</TextAccent>{" "}
+              พร้อมสนับสนุนหน่วยงานและบุคลากรที่ทำงานด้านการรักษา เพื่อให้ผู้ป่วยได้รับโอกาส
+              ในเวลาที่สำคัญที่สุด
             </p>
           </Reveal>
 
@@ -109,8 +116,8 @@ export function HomeOriginalSections() {
                 <div className="mb-3 grid h-10 w-10 place-items-center rounded-full bg-gold-light text-gold-dark">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-heading text-base font-semibold text-foreground">
-                  {card.title}
+                <h3 className="font-heading text-[17px] font-semibold text-foreground">
+                  <TextAccent>{card.title}</TextAccent>
                 </h3>
                 <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">
                   {card.text}
@@ -128,12 +135,14 @@ export function HomeOriginalSections() {
               เหตุใดจึงควรเลือกเรา
             </p>
             <h2 className="font-heading text-[28px] font-semibold leading-snug text-foreground max-md:text-2xl">
-              บริจาคเพื่อช่วยเหลือผู้ป่วยยากไร้ที่ครอบครัวไม่สามารถรับผิดชอบค่ารักษาได้
+              ทุกการบริจาคคือ
+              <TextAccent className="text-[1.14em]">โอกาสในการรักษา</TextAccent>{" "}
+              สำหรับผู้ป่วยที่ครอบครัวรับภาระไม่ไหว
             </h2>
             <p className="mt-4 max-w-3xl text-[15px] leading-[1.85] text-muted-foreground max-lg:mx-auto">
-              ร่วมบริจาคสมทบทุนมูลนิธิศาสตราจารย์ นายแพทย์
-              หม่อมราชวงศ์กัลยาณกิติ์ กิติยากร เพื่อช่วยเหลือผู้ป่วยโรคหัวใจและทรวงอก
-              ให้ได้รับโอกาสในการรักษาและมีคุณภาพชีวิตที่ดีขึ้น
+              ร่วมบริจาคสมทบทุนเพื่อช่วยเหลือ
+              <TextAccent>ผู้ป่วยยากไร้</TextAccent>{" "}
+              ให้ได้รับการรักษาอย่างเหมาะสม และกลับไปใช้ชีวิตกับครอบครัวได้อีกครั้ง
             </p>
             <Link
               to="/donate"

@@ -30,7 +30,7 @@ export function PatientCard({ patient, onRead, className }: PatientCardProps) {
         />
       </div>
 
-      <h3 className="line-clamp-2 min-h-[38px] font-heading text-[12.5px] font-semibold leading-snug text-foreground">
+      <h3 className="line-clamp-2 min-h-[42px] font-heading text-[13.5px] font-semibold leading-snug text-foreground">
         {patient.name}
       </h3>
 
