@@ -3,10 +3,17 @@ import { DonateButton } from "@/components/common/DonateButton"
 import { Reveal } from "@/components/common/Motion"
 import { TextAccent } from "@/components/common/TextAccent"
 
-/** Hero หน้าแรก */
 export function Hero() {
   return (
-    <section className="bg-[linear-gradient(180deg,#ffffff_0%,var(--bg-cream)_100%)] py-[42px]">
+    <section className="bg-[linear-gradient(180deg,#ffffff_0%,var(--bg-cream)_100%)] py-10 max-md:py-8">
+      <Reveal className="container-1200 mb-5 hidden text-center md:block">
+        <img
+          src={site.logo}
+          alt={site.nameShort}
+          className="mx-auto h-[min(25vh,210px)] w-auto object-contain"
+        />
+      </Reveal>
+
       <Reveal className="container-1200 mb-12 text-center">
         <h1 className="mx-auto max-w-[1280px] text-balance font-heading text-[40px] font-semibold leading-tight text-foreground max-xl:text-[34px] max-md:text-2xl">
           {site.nameFull}
@@ -16,47 +23,44 @@ export function Hero() {
         </p>
       </Reveal>
 
-      <div className="container-1200 grid grid-cols-[minmax(0,1fr)_minmax(360px,520px)] items-center gap-14 max-lg:grid-cols-1 max-lg:gap-8 max-lg:text-center">
-        <Reveal className="max-w-[820px] max-lg:mx-auto">
-          <p className="mb-2 font-heading text-lg font-medium text-foreground">
+      <div className="container-1200 grid grid-cols-[minmax(340px,520px)_minmax(0,1fr)] items-center gap-14 max-lg:grid-cols-1 max-lg:gap-8 max-lg:text-center">
+        <Reveal className="justify-self-center text-center max-lg:mx-auto max-lg:w-full max-lg:max-w-sm">
+          <img
+            src={site.heroIllustration}
+            alt={site.nameFull}
+            className="mx-auto w-full max-w-[500px] object-contain"
+          />
+          <p className="mt-2 font-heading text-sm font-semibold text-foreground">
+            ศ.นพ.ม.ร.ว.กัลยาณกิติ์ กิติยากร
+          </p>
+          <p className="text-xs text-gold-dark">ศัลยแพทย์หัวใจและทรวงอก</p>
+          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+            {site.established}
+          </p>
+        </Reveal>
+
+        <Reveal direction="right" className="max-w-[880px] max-lg:mx-auto">
+          <p className="mb-3 font-heading text-lg font-semibold text-foreground">
             ภารกิจของเรา
           </p>
-          <h2 className="font-heading text-[38px] font-normal leading-tight text-foreground max-xl:text-[32px] max-md:text-[23px]">
-            <TextAccent className="text-[1.18em]">สืบสานอุดมการณ์</TextAccent>{" "}
+          <h2 className="text-balance font-heading text-[40px] font-semibold leading-tight text-foreground max-xl:text-[34px] max-md:text-[24px]">
+            <TextAccent className="text-[1.16em]">สืบสานอุดมการณ์</TextAccent>{" "}
             เพื่อผู้ป่วย{" "}
-            <TextAccent className="text-[1.12em]">โรคหัวใจและทรวงอก</TextAccent>
+            <TextAccent className="text-[1.08em]">โรคหัวใจและทรวงอก</TextAccent>
           </h2>
-          <p className="mt-4 font-heading text-[22px] font-medium leading-9 text-gold-dark max-md:text-lg max-md:leading-8">
-            มอบโอกาสในการรักษาให้
-            <TextAccent className="text-[1.12em]">ผู้ป่วยยากไร้</TextAccent>{" "}
+          <p className="mt-5 font-heading text-[24px] font-medium leading-9 text-gold-dark max-md:text-lg max-md:leading-8">
+            มอบโอกาสในการรักษาให้ผู้ป่วยยากไร้
             ด้วยการสนับสนุนที่ต่อเนื่องและไว้วางใจได้
           </p>
-          <p className="mt-5 max-w-[760px] text-base leading-8 text-muted-foreground">
+          <p className="mt-6 max-w-[780px] text-base leading-8 text-muted-foreground max-lg:mx-auto">
             ก่อตั้งจากการอุทิศตนของ{" "}
             <TextAccent>ศ.นพ.ม.ร.ว.กัลยาณกิติ์ กิติยากร</TextAccent>{" "}
             เพื่อสานต่อความรู้ ความเสียสละ และการช่วยเหลือผู้ป่วยหัวใจและทรวงอก
             ที่ครอบครัวไม่สามารถรับภาระค่ารักษาได้
           </p>
-          <div className="mt-6 flex flex-wrap gap-3 max-lg:justify-center">
+          <div className="mt-7 flex flex-wrap gap-3 max-lg:justify-center">
             <DonateButton />
           </div>
-        </Reveal>
-
-        <Reveal className="justify-self-center p-5 text-center max-lg:mx-auto max-lg:w-full max-lg:max-w-xs">
-          <img
-            src={site.heroIllustration}
-            alt="ศ.นพ.ม.ร.ว.กัลยาณกิติ์ กิติยากร"
-            className="mx-auto w-full max-w-[460px]"
-          />
-          <p className="font-heading text-[13.5px] font-semibold text-foreground">
-            ศ.นพ.ม.ร.ว.กัลยาณกิติ์ กิติยากร
-          </p>
-          <p className="text-[11.5px] text-gold-dark">
-            ศัลยแพทย์หัวใจและทรวงอก
-          </p>
-          <p className="mt-2 text-[11.5px] leading-relaxed text-muted-foreground">
-            {site.established}
-          </p>
         </Reveal>
       </div>
     </section>
