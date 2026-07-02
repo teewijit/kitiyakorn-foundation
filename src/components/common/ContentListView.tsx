@@ -16,12 +16,17 @@ import type { ContentItem } from "@/types/content"
 interface ContentListViewProps {
   items: ContentItem[]
   emptyText?: string
+  disableMotion?: boolean
 }
 
 type SortKey = "newest" | "oldest" | "title"
 
 /** มุมมองรายการข่าว/โครงการ — มี search + sort (shadcn Input/Select) + grid การ์ด */
-export function ContentListView({ items, emptyText }: ContentListViewProps) {
+export function ContentListView({
+  items,
+  emptyText,
+  disableMotion = false,
+}: ContentListViewProps) {
   const [query, setQuery] = useState("")
   const [sort, setSort] = useState<SortKey>("newest")
 
@@ -69,6 +74,12 @@ export function ContentListView({ items, emptyText }: ContentListViewProps) {
         <p className="py-16 text-center text-muted-foreground">
           {emptyText ?? "ไม่พบรายการที่ค้นหา"}
         </p>
+      ) : disableMotion ? (
+        <div className="grid grid-cols-4 gap-4 max-[900px]:grid-cols-3 max-[700px]:grid-cols-2 max-[480px]:grid-cols-1">
+          {filtered.map((item) => (
+            <ContentCard key={`${item.kind}-${item.id}`} item={item} calm />
+          ))}
+        </div>
       ) : (
         <MotionList className="grid grid-cols-4 gap-4 max-[900px]:grid-cols-3 max-[700px]:grid-cols-2 max-[480px]:grid-cols-1">
           {filtered.map((item) => (

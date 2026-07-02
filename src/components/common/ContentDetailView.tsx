@@ -11,6 +11,7 @@ interface ContentDetailViewProps {
   backTo: string
   backLabel: string
   related: ContentItem[]
+  disableMotion?: boolean
 }
 
 export function ContentDetailView({
@@ -18,7 +19,42 @@ export function ContentDetailView({
   backTo,
   backLabel,
   related,
+  disableMotion = false,
 }: ContentDetailViewProps) {
+  const heroImage = (
+    <img
+      src={item.image}
+      alt={item.title}
+      className="w-full rounded-2xl object-cover shadow-soft"
+      style={{ background: item.background || undefined }}
+    />
+  )
+
+  const detailContent = (
+    <>
+      <p className="flex items-center gap-1.5 text-[13px] text-muted-foreground">
+        <CalendarDays className="h-4 w-4 text-gold" />
+        {item.date}
+      </p>
+      <h1 className="mt-3 font-heading text-[26px] font-semibold leading-snug text-foreground max-md:text-2xl">
+        {item.title}
+      </h1>
+      <p className="mt-5 text-[15px] leading-[1.9] text-muted-foreground">
+        {item.description}
+      </p>
+      <div className="mt-8 rounded-xl border border-[#ebdcb5] bg-[#fcf6ec] p-5">
+        <p className="text-[14px] text-foreground">
+          ร่วมเป็นส่วนหนึ่งในการช่วยเหลือผู้ป่วยยากไร้กับมูลนิธิฯ
+        </p>
+        <DonateButton className="mt-3" />
+      </div>
+    </>
+  )
+
+  const relatedCards = related.map((r) => (
+    <ContentCard key={`${r.kind}-${r.id}`} item={r} calm={disableMotion} />
+  ))
+
   return (
     <article className="container-1200 py-[60px] max-lg:py-10">
       <Link
@@ -29,46 +65,29 @@ export function ContentDetailView({
       </Link>
 
       <div className="grid grid-cols-[1.1fr_1fr] gap-10 max-lg:grid-cols-1">
-        <Reveal direction="left">
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full rounded-2xl object-cover shadow-soft"
-            style={{ background: item.background || undefined }}
-          />
-        </Reveal>
-
-        <Reveal direction="right">
-          <p className="flex items-center gap-1.5 text-[13px] text-muted-foreground">
-            <CalendarDays className="h-4 w-4 text-gold" />
-            {item.date}
-          </p>
-          <h1 className="mt-3 font-heading text-[26px] font-semibold leading-snug text-foreground max-md:text-2xl">
-            {item.title}
-          </h1>
-          <p className="mt-5 text-[15px] leading-[1.9] text-muted-foreground">
-            {item.description}
-          </p>
-          <div className="mt-8 rounded-xl border border-[#ebdcb5] bg-[#fcf6ec] p-5">
-            <p className="text-[14px] text-foreground">
-              ร่วมเป็นส่วนหนึ่งในการช่วยเหลือผู้ป่วยยากไร้กับมูลนิธิฯ
-            </p>
-            <DonateButton className="mt-3" />
-          </div>
-        </Reveal>
+        {disableMotion ? heroImage : <Reveal direction="left">{heroImage}</Reveal>}
+        {disableMotion ? (
+          <div>{detailContent}</div>
+        ) : (
+          <Reveal direction="right">{detailContent}</Reveal>
+        )}
       </div>
 
       {related.length > 0 && (
-        <Reveal className="mt-16">
+        <div className="mt-16">
           <h2 className="mb-6 font-heading text-xl font-semibold text-foreground">
             เรื่องที่เกี่ยวข้อง
           </h2>
-          <MotionList className="grid grid-cols-4 gap-4 max-[900px]:grid-cols-3 max-[700px]:grid-cols-2 max-[480px]:grid-cols-1">
-            {related.map((r) => (
-              <ContentCard key={`${r.kind}-${r.id}`} item={r} />
-            ))}
-          </MotionList>
-        </Reveal>
+          {disableMotion ? (
+            <div className="grid grid-cols-4 gap-4 max-[900px]:grid-cols-3 max-[700px]:grid-cols-2 max-[480px]:grid-cols-1">
+              {relatedCards}
+            </div>
+          ) : (
+            <MotionList className="grid grid-cols-4 gap-4 max-[900px]:grid-cols-3 max-[700px]:grid-cols-2 max-[480px]:grid-cols-1">
+              {relatedCards}
+            </MotionList>
+          )}
+        </div>
       )}
     </article>
   )

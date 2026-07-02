@@ -8,6 +8,7 @@ import type { ContentItem } from "@/types/content"
 interface ContentCardProps {
   item: ContentItem
   className?: string
+  calm?: boolean
 }
 
 const KIND_LABEL: Record<ContentItem["kind"], string> = {
@@ -19,13 +20,14 @@ const KIND_LABEL: Record<ContentItem["kind"], string> = {
  * การ์ดเนื้อหา (design.md §7.4 — เดิม patient card) ใช้กับทั้งข่าว & โครงการ
  * รูป aspect-ratio, ชื่อ clamp 2 บรรทัด, ปุ่มอ่านเพิ่มเติม margin-top auto
  */
-export function ContentCard({ item, className }: ContentCardProps) {
+export function ContentCard({ item, className, calm = false }: ContentCardProps) {
   const to = `/${item.kind}/${item.id}`
   return (
     <Link
       to={to}
       className={cn(
-        "motion-card group flex h-full flex-col self-stretch rounded-xl border border-border-light bg-card p-3 shadow-card [@media(hover:hover)]:hover:-translate-y-1.5 [@media(hover:hover)]:hover:border-gold-light [@media(hover:hover)]:hover:shadow-hover",
+        "group flex h-full flex-col self-stretch rounded-xl border border-border-light bg-card p-3 shadow-card transition-smooth [@media(hover:hover)]:hover:border-gold-light [@media(hover:hover)]:hover:shadow-hover",
+        !calm && "motion-card [@media(hover:hover)]:hover:-translate-y-1.5",
         className
       )}
     >
@@ -37,7 +39,10 @@ export function ContentCard({ item, className }: ContentCardProps) {
           src={item.image}
           alt={item.title}
           loading="lazy"
-          className="motion-image-zoom h-full w-full object-cover object-[center_30%] group-hover:scale-[1.035] max-[700px]:aspect-square"
+          className={cn(
+            "h-full w-full object-cover object-[center_30%] max-[700px]:aspect-square",
+            calm ? "transition-opacity" : "motion-image-zoom group-hover:scale-[1.035]"
+          )}
           style={{ background: item.background || undefined }}
         />
         <Badge className="absolute left-2 top-2 text-[10px]">

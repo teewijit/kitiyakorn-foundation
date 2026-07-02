@@ -13,7 +13,7 @@ export function SectionHeader({ title, subtitle, className }: SectionHeaderProps
   return (
     <div className={cn("mb-10 text-center", className)}>
       <h2 className="flex items-center justify-center gap-2 text-balance font-heading text-[30px] font-semibold leading-tight text-foreground max-md:text-2xl">
-        <Heart className="h-[18px] w-[18px] fill-gold text-gold" />
+        {/* <Heart className="h-[18px] w-[18px] fill-gold text-gold" /> */}
         {title}
       </h2>
       <div className="my-3 flex items-center justify-center gap-3">

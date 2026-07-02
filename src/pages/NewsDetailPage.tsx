@@ -18,6 +18,7 @@ export function NewsDetailPage() {
       backTo="/news"
       backLabel="กลับไปหน้าข่าวสาร"
       related={related}
+      disableMotion
     />
   )
 }
