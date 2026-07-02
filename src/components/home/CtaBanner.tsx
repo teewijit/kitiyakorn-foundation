@@ -10,7 +10,7 @@ export function CtaBanner() {
     <section className="border-y border-border-light bg-card py-[30px]">
       <div className="container-1200 grid grid-cols-[120px_1fr_310px] items-center gap-5 max-lg:grid-cols-1 max-lg:text-center">
         <img
-          src={site.crest}
+          src={site.logo}
           alt="ตรามูลนิธิ"
           className="h-[110px] w-auto object-contain max-lg:mx-auto"
         />

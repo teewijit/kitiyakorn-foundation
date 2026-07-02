@@ -10,7 +10,7 @@ export function HomePage() {
     <>
       <Hero />
       <HomeOriginalSections />
-      <StatsSection />
+      {/* <StatsSection /> */}
       <WallOfHope />
       <StoryOfHope />
       <CtaBanner />

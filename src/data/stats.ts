@@ -20,10 +20,13 @@ export interface Stat {
  * สถิติ — derive จากเนื้อหา content/02-about-us (33+ ปี, ยอดสนับสนุน)
  * และจำนวนโครงการ/ข่าวในคลังข้อมูล (design.md §7.3)
  */
+const currentYear = new Date().getFullYear();
+const year = currentYear - 1987;
+
 export const stats: Stat[] = [
   {
     icon: Heart,
-    value: "38+",
+    value: year.toString() + "+",
     label: "ปีแห่งการให้",
     desc: "ดำเนินงานตั้งแต่ปี 2530",
   },

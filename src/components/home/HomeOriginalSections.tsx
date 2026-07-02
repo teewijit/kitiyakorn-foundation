@@ -37,12 +37,13 @@ export function HomeOriginalSections() {
       <section className="bg-card py-[60px] max-lg:py-10">
         <div className="container-1200 grid grid-cols-[0.9fr_1.1fr] items-center gap-10 max-lg:grid-cols-1">
           <Reveal direction="left" className="mx-auto max-w-sm">
-            <img
-              src={originalImages.foundationMark}
-              alt={site.nameShort}
-              className="w-full object-contain"
-              loading="lazy"
-            />
+
+        <img
+          src={site.logo}
+          alt={site.nameShort}
+          className="h-75 w-auto object-contain max-md:h-20"
+          loading="lazy"
+        />
           </Reveal>
 
           <Reveal direction="right">
