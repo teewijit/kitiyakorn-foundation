@@ -19,7 +19,7 @@ export function Header() {
           />
         </NavLink>
 
-        <nav className="hidden items-center gap-5 min-[1025px]:flex">
+        <nav className="hidden items-center gap-4 min-[1025px]:flex">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -27,7 +27,7 @@ export function Header() {
               end={link.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "relative font-heading text-sm font-medium text-foreground transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-gold after:transition-all hover:text-gold-dark",
+                  "relative font-heading text-[13px] font-medium text-foreground transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-gold after:transition-all hover:text-gold-dark xl:text-sm",
                   isActive && "text-gold-dark after:w-full"
                 )
               }

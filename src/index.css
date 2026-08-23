@@ -149,6 +149,34 @@
   transition: transform var(--motion-slow) var(--ease-out-quart);
 }
 
+@utility intro-crest-shadow {
+  filter:
+    drop-shadow(0 4px 3px rgba(0, 0, 0, 0.46))
+    drop-shadow(0 14px 20px rgba(0, 0, 0, 0.56))
+    drop-shadow(0 0 18px rgba(220, 169, 80, 0.42));
+}
+
+@utility intro-title-shadow {
+  text-shadow:
+    0 3px 2px rgba(0, 0, 0, 0.46),
+    0 12px 24px rgba(0, 0, 0, 0.64),
+    0 0 42px rgba(0, 0, 0, 0.42);
+}
+
+@utility intro-title-gold-shadow {
+  text-shadow:
+    0 2px 2px rgba(0, 0, 0, 0.52),
+    0 8px 18px rgba(0, 0, 0, 0.68),
+    0 0 24px rgba(226, 167, 70, 0.32);
+}
+
+@utility intro-copy-shadow {
+  text-shadow:
+    0 2px 2px rgba(0, 0, 0, 0.74),
+    0 6px 14px rgba(0, 0, 0, 0.78),
+    0 0 26px rgba(0, 0, 0, 0.58);
+}
+
 /* Page container — max 1200px (design.md §3) */
 .container-1200 {
   width: 100%;

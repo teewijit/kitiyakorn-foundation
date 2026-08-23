@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/sheet"
 import { DonateButton } from "@/components/common/DonateButton"
 
-/** เมนูมือถือ (design.md §5) — hamburger เปิด Sheet ≤1024px */
 export function MobileNav() {
   const [open, setOpen] = useState(false)
 

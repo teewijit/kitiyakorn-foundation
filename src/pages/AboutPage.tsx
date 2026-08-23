@@ -39,19 +39,19 @@ export function AboutPage() {
       <section className="container-1200 py-[60px] max-lg:py-10">
         <div className="grid grid-cols-[1fr_1.1fr] items-center gap-10 max-lg:grid-cols-1">
           <Reveal direction="left">
-          <img
-            src={site.heroIllustration}
-            alt={site.nameShort}
-            className="w-full rounded-2xl shadow-soft"
-          />
-          </Reveal>
-          <Reveal direction="right">
             <h2 className="font-heading text-2xl font-semibold text-foreground">
               {site.nameFull}
             </h2>
             <p className="mt-4 text-[15px] leading-[1.9] text-muted-foreground">
             ก่อกำเนิดจากการอุทิศตนของ ศ.นพ.ม.ร.ว.กัลยาณกิติ์ กิติยากร ซึ่งตลอดชีวิตการทำงาน เป็นศัลยแพทย์หัวใจและทรวงอก ท่านได้เสียสละและทุ่มเทเพื่อพัฒนาองค์ความรู้ รวมทั้งผ่าตัดรักษาผู้ป่วยโรคหัวใจมามากมาย หลังจาก “ศ.นพ.ม.ร.ว.กัลยาณกิติ์ กิติยากรถึงแก่อนิจกรรม เมื่อปี 2530” สมเด็จพระกนิษฐาธิราชเจ้า กรมสมเด็จพระเทพรัตนราชสุดาฯ ทรงดำริให้จัดตั้งมูลนิธิฯเพื่อสืบสานปณิธานของ ศ.นพ.ม.ร.ว.กัลยาณกิติ์ กิติยากร ในการช่วยเหลือผู้ป่วยหัวใจและทรวงอกที่ยากไร้ ให้มีชีวิตที่ยืนยาว และปัจจุบันยังได้รับพระเมตตาจากพระเจ้าวรวงศ์เธอ พระองค์เจ้าโสมสวลี กรมหมื่นสุทธนารีนาถ เป็นองค์ประธานอุปถัมภ์อีกด้วย
             </p>
+          </Reveal>
+          <Reveal direction="right" className="flex justify-center lg:justify-end">
+          <img
+            src={site.heroIllustration}
+            alt={site.nameShort}
+            className="w-full max-w-[520px] max-h-[640px] rounded-2xl object-contain shadow-soft max-lg:max-w-[440px] max-md:max-h-[460px]"
+          />
           </Reveal>
         </div>
 
