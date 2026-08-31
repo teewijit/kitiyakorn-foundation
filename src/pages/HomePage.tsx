@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero"
+import { MissionSection } from "@/components/home/MissionSection"
 import { HomeOriginalSections } from "@/components/home/HomeOriginalSections"
 import { WallOfHope } from "@/components/home/WallOfHope"
 import { StoryOfHope } from "@/components/home/StoryOfHope"
@@ -8,6 +9,7 @@ export function HomePage() {
   return (
     <>
       <Hero />
+      <MissionSection />
       <HomeOriginalSections />
       {/* <StatsSection /> */}
       <WallOfHope />
